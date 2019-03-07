@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene width="640" height="480" bgColor="#33000000" name="First Level" description="Demo" version="1.0">
+    <values>
+		<val id = "startPosX" type="Int" value = "500" />
+		<val id = "startPosY" type="Int" value = "100" />
+
+		<val id = "lives" type="Int" value="3" />
+		<!-- <const id="precise" type="Float" value="61.75848" /> -->
+		<!-- <const id="raining" type="Bool" value="false" /> -->
+		<val id = "name" type="String" value="Winner" />
+	</constants>
+
+    <layer id="hud">
+        <text text="I Scene" x="10" y="10" color="white" size="20" />
+    </layer>
+
+	<layer id="border">
+		<entity type="entity.block.Border" id = "1" x = "400"   y = "0"	width = "16" 	height = "480"/>
+		<entity type="entity.block.Border" id = "2" x = "624" y = "0" 	width = "16"    height = "464" />
+
+		<entity type="entity.block.Border" id = "3" x = "0"   y = "0" 	width = "640" 	height = "16" />
+		<!-- <entity type="entity.block.Border" id = "4" x = "0"   y = "464" width = "640" 	height = "16" /> -->
+	</layer>
+
+	<layer id="enemy">
+		<entity type="entity.enemy.Rebel" x = "320" y = "240" />
+		<entity type="entity.enemy.Rebel" x = "120" y = "240" />
+		<entity type="entity.enemy.Rebel" x = "520" y = "240" />
+		<entity type="entity.enemy.Rebel" x = "320" y = "440" />
+		<entity type="entity.enemy.Rebel" x = "100" y = "100" />
+		<entity type="entity.enemy.Rebel" x = "150" y = "150" />
+		
+	</layer>
+
+	<layer id="object">
+		<entity type="entity.enemy.Teleport" x = "320" y = "240" />
+	</layer>
+</scene>
