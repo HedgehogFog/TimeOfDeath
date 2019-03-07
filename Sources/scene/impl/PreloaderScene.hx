@@ -8,8 +8,10 @@ import scene.managment.SceneManager;
 
 class PreloaderScene implements Scene{
 	public var bgColor: Color;
-
+	public var space:   Space;
+	
 	public function new(){
+		space = new Space();
 	}
 
 	public function draw(gr: Graphics){

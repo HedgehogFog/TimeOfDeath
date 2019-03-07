@@ -15,9 +15,12 @@ import entity.element.user.Player;
 class GameScene implements Scene {
 	public var currentStage: Stage;
 	public var bgColor: Color;
+	public var space:   Space;
 	
 	var playerGroup: TypedGroup<Player>;
 	public function new(){
+		space = new Space();
+		
 		playerGroup = new TypedGroup<Player>();
 		playerGroup.add(new Player(250, 250));
 		playerGroup.add(new Player(10, 10));
@@ -30,10 +33,6 @@ class GameScene implements Scene {
 
 
 		playerGroup.draw(gr);
-
-		gr.font = Assets.fonts.OpenSans;
-		gr.fontSize = 24;
-		gr.drawString("I`am Game! Йопта!", 100, 100);
 		gr.end();
 	}
 	

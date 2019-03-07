@@ -3,6 +3,8 @@ project.addAssets('Assets/Font/**');
 project.addAssets('Assets/Levels/**')
 project.addSources('Sources');
 
+project.addLibrary("nape");
+
 project.addDefine('HXCPP_DEBUGGER');
 project.addCDefine('HXCPP_DEBUGGER'); 
 

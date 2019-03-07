@@ -3,7 +3,10 @@ package entity.element;
 import kha.graphics2.Graphics;
 
 class Entity implements IEntity {
-
+	
+	public var width:  Int;
+	public var height: Int;
+	
 	public var name    = "Entity";
 	public var active  = true;
 	public var visible = true;
@@ -27,6 +30,7 @@ class Entity implements IEntity {
 	public function kill() {
 		alive = false;
 	}
+	
 	public function revive(){
 		alive = true;
 	}
