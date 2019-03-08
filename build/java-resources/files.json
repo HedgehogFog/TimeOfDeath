@@ -1,0 +1,18 @@
+{
+	"files": [
+		{
+			"name": "OpenSans",
+			"files": [
+				"OpenSans.ttf"
+			],
+			"type": "font"
+		},
+		{
+			"name": "l0_xml",
+			"files": [
+				"l0.xml"
+			],
+			"type": "blob"
+		}
+	]
+}

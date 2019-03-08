@@ -100,23 +100,25 @@ class Stage {
 			
 			for (element in layer.elements){
 				switch (element.name){
-					case "sprite":
-						var instance = new Sprite();
-						applySpriteProperties(instance, element);
+					default:
+						return;
+					// case "sprite":
+					// 	var instance = new Sprite();
+					// 	applySpriteProperties(instance, element);
 
-						addInstance(instance, container, element);
-					case "entity":
-						var instance = Type.createInstance(Type.resolveClass(element.att.type), []);
-						applySpriteProperties(instance, element);
+					// 	addInstance(instance, container, element);
+					// case "entity":
+					// 	var instance = Type.createInstance(Type.resolveClass(element.att.type), []);
+					// 	applySpriteProperties(instance, element);
 
-						addInstance(instance, container, element);
-					case "text":
-						var instance = new Text();
+					// 	addInstance(instance, container, element);
+					// case "text":
+					// 	var instance = new Text();
 						
-						applySpriteProperties(instance, element);
-						applyTextProperties(instance, element);
+					// 	applySpriteProperties(instance, element);
+					// 	applyTextProperties(instance, element);
 
-						addInstance(instance, container, element);
+					// 	addInstance(instance, container, element);
 					// case "button":
 						// var instance = new FlxButton();
 						// applySpriteProperties(instance, element);

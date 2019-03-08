@@ -5,9 +5,6 @@ import kha.input.Keyboard;
 import kha.input.KeyCode;
 
 class Player extends Entity {
-	var x: Float;
-	var y: Float;
-
 	public function new(x: Float, y: Float){
 		super();
 

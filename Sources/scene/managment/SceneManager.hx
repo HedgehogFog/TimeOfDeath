@@ -1,5 +1,7 @@
 package scene.managment;
 
+import nape.geom.Vec2;
+import nape.space.Space;
 import scene.impl.*;
 import util.Timer;
 
@@ -10,9 +12,11 @@ class SceneManager {
 
 	var timer: Timer;
 	public var currentScene: Scene;
+	public var space:   Space;
 
 	private function new(){
 		currentScene = new PreloaderScene();
+		space        = new Space(new Vec2(0, 300));
 		timer        = new Timer();
 	}
 
@@ -21,6 +25,7 @@ class SceneManager {
 	}
 
 	public function update(){
+		space.step(1 / 60);		
 		timer.update();
 		currentScene.update(timer.delta);
 	}
@@ -28,6 +33,7 @@ class SceneManager {
 	public function setScene(scene: Scene){
 		currentScene.destroy();
 		currentScene = scene;
+
 	}
 
 }

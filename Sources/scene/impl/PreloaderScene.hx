@@ -1,5 +1,6 @@
 package scene.impl;
 
+import nape.space.Space;
 import kha.Assets;
 import kha.Color;
 import kha.graphics2.Graphics;
@@ -8,10 +9,9 @@ import scene.managment.SceneManager;
 
 class PreloaderScene implements Scene{
 	public var bgColor: Color;
-	public var space:   Space;
 	
 	public function new(){
-		space = new Space();
+		// space = new Space();
 	}
 
 	public function draw(gr: Graphics){
@@ -19,7 +19,7 @@ class PreloaderScene implements Scene{
 		
 		gr.font = Assets.fonts.OpenSans;
 		gr.fontSize = 24;
-		gr.drawString("Hello world", 100, 100);
+		gr.drawString("Hello ВОРЛД", 100, 100);
 		gr.end();
 	}
 	
@@ -35,4 +35,5 @@ class PreloaderScene implements Scene{
 	public function destroy(){
 
 	}
+
 }

@@ -1,5 +1,7 @@
 package;
 
+import kha.StringExtensions;
+import kha.graphics2.Graphics;
 import kha.Framebuffer;
 import kha.Scheduler;
 import kha.System;
@@ -18,7 +20,9 @@ class Project {
 
 	function render(framebuffer: Framebuffer): Void {
 		var g2 = framebuffer.g2;
+		var glyphs:String=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
+		Graphics.fontGlyphs = StringExtensions.toCharArray(glyphs);
 		SceneManager.instance.draw(g2);
 	}
 }

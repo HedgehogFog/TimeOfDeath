@@ -3,17 +3,21 @@ package entity.element;
 import kha.graphics2.Graphics;
 
 class Entity implements IEntity {
+
+	public var x: Float;
+	public var y: Float;
 	
-	public var width:  Int;
-	public var height: Int;
+	public var width:  Float;
+	public var height: Float;
 	
 	public var name    = "Entity";
 	public var active  = true;
 	public var visible = true;
 	public var alive   = true;
 	
-	public function new() {
-
+	public function new(x: Float, y: Float) {
+		this.x = x;
+		this.y = y;
 	}
 	
 	public function draw(gr: Graphics){

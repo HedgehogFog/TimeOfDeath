@@ -8,14 +8,17 @@ import nape.shape.Polygon;
 import scene.managment.SceneManager;
 
 class PhysicUI extends Entity {
-    protected var space: Space;
-    protected var body:  Body;
-	protected var shape: Polygon;
+    public var space: Space;
+
+    public var body:  Body;
+	public var shape: Polygon;
 	
 	public function new(x: Float, y: Float){
+		super();
+
 	    this.x = x;
 	    this.y = y;
-	    
-	    SceneManager.instance.currentScene().space = space;
+		
+		space = SceneManager.instance.space;
 	}
 }

@@ -3,13 +3,13 @@ project.addAssets('Assets/Font/**');
 project.addAssets('Assets/Levels/**')
 project.addSources('Sources');
 
-project.addLibrary("nape");
+project.addLibrary("nape4");
+project.addLibrary("zui");
+// project.addDefine('HXCPP_DEBUGGER');
+// project.addCDefine('HXCPP_DEBUGGER'); 
 
-project.addDefine('HXCPP_DEBUGGER');
-project.addCDefine('HXCPP_DEBUGGER'); 
+// project.addLibrary('zui');
+// project.addLibrary('hxcpp-debugger');
 
-project.addLibrary('zui');
-project.addLibrary('hxcpp-debugger');
-
-project.addParameter('-debug');
+// project.addParameter('-debug');
 resolve(project);

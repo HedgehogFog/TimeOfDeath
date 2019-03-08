@@ -8,7 +8,7 @@
 		<!-- <const id="precise" type="Float" value="61.75848" /> -->
 		<!-- <const id="raining" type="Bool" value="false" /> -->
 		<val id = "name" type="String" value="Winner" />
-	</constants>
+	</values>
 
     <layer id="hud">
         <text text="I Scene" x="10" y="10" color="white" size="20" />

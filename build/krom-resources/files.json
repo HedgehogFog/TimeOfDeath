@@ -1,6 +1,13 @@
 {
 	"files": [
 		{
+			"name": "OpenSans_sfd",
+			"files": [
+				"OpenSans.sfd"
+			],
+			"type": "blob"
+		},
+		{
 			"name": "OpenSans",
 			"files": [
 				"OpenSans.ttf"

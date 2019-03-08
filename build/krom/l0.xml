@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scene width="640" height="480" bgColor="black" name="First Level" description="Demo" version="1.0">
-    <constants>
-		<const id = "startPosX" type="Int" value = "500" />
-		<const id = "startPosY" type="Int" value = "100" />
+<scene width="640" height="480" bgColor="#33000000" name="First Level" description="Demo" version="1.0">
+    <values>
+		<val id = "startPosX" type="Int" value = "500" />
+		<val id = "startPosY" type="Int" value = "100" />
 
-		<const id = "lives" type="Int" value="3" />
+		<val id = "lives" type="Int" value="3" />
 		<!-- <const id="precise" type="Float" value="61.75848" /> -->
 		<!-- <const id="raining" type="Bool" value="false" /> -->
-		<const id = "name" type="String" value="Winner" />
-	</constants>
+		<val id = "name" type="String" value="Winner" />
+	</values>
 
     <layer id="hud">
         <text text="I Scene" x="10" y="10" color="white" size="20" />
