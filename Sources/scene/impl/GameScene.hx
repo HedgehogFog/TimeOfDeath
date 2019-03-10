@@ -19,7 +19,7 @@ import scene.managment.SceneManager;
 import world.Stage;	
 import entity.group.Group;
 import entity.element.user.Player;
-import entity.element.ui.physic.PhysicText;
+import entity.element.ui.label.PhysicText;
 
 
 class GameScene implements Scene {
@@ -30,9 +30,7 @@ class GameScene implements Scene {
 	var textGroup: 	 TypedGroup<PhysicText>;
 	public function new(){
 
-		playerGroup = new TypedGroup<Player>();
-		playerGroup.add(new Player(250, 250));
-		playerGroup.add(new Player(10, 10));
+		
 		
 		textGroup = new TypedGroup<PhysicText>();
 		textGroup.add(new PhysicText(100, 100, "I Физика", 24));
@@ -42,6 +40,14 @@ class GameScene implements Scene {
 		// }
 
 		currentStage = new Stage("l0_xml");
+		
+		playerGroup = new TypedGroup<Player>();
+		var x: Float = currentStage.getValue("startPosX");
+		var y: Float = currentStage.getValue("startPosY");
+		trace(x + "," + y);
+		playerGroup.add(new Player(x, y));
+		// playerGroup.add(new Player(10, 10));
+		
 		ui = new Zui({ font: Assets.fonts.OpenSans, khaWindowId: 0, scaleFactor: 1.0 });
 	}
 
@@ -55,7 +61,7 @@ class GameScene implements Scene {
 		playerGroup.draw(gr);
 		textGroup.draw(gr);
 		gr.end();
-
+ 
 		ui.begin(gr);
 		// if (ui.window(Id.handle(), 10, 10, 240, 600, true)) {
 		// 	if (ui.panel(Id.handle({selected: true}), "Панель")) {
@@ -68,6 +74,7 @@ class GameScene implements Scene {
 	var loadTime = 2.0;
 
 	public function update(dt: Float){
+		trace(currentStage.getValue("startPosX"));
 		playerGroup.update(dt);
 		textGroup.update(dt);
 	}

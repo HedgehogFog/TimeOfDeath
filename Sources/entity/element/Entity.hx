@@ -9,13 +9,14 @@ class Entity implements IEntity {
 	
 	public var width:  Float;
 	public var height: Float;
-	
+	public var angle:  Float;
+
 	public var name    = "Entity";
 	public var active  = true;
 	public var visible = true;
 	public var alive   = true;
 	
-	public function new(x: Float, y: Float) {
+	public function new(?x: Float = 0, ?y: Float = 0) {
 		this.x = x;
 		this.y = y;
 	}

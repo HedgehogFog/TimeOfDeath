@@ -29,7 +29,7 @@ class PreloaderScene implements Scene{
 		if (loadTime > 0){
 			loadTime -= dt;
 		} else {
-			SceneManager.instance.setScene(new GameScene());
+			SceneManager.instance.setScene(new BezeiScene());
 		}
 	}
 	public function destroy(){

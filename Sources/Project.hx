@@ -1,5 +1,6 @@
 package;
 
+import kha.Assets;
 import kha.StringExtensions;
 import kha.graphics2.Graphics;
 import kha.Framebuffer;
@@ -20,6 +21,7 @@ class Project {
 
 	function render(framebuffer: Framebuffer): Void {
 		var g2 = framebuffer.g2;
+		util.Draw.g1 = framebuffer.g1;
 		var glyphs:String=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
 		Graphics.fontGlyphs = StringExtensions.toCharArray(glyphs);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene width="640" height="480" bgColor="#33000000" name="First Level" description="Demo" version="1.0">
     <values>
-		<val id = "startPosX" type="Int" value = "500" />
-		<val id = "startPosY" type="Int" value = "100" />
+		<val id = "startPosX" type="Float" value = "100" />
+		<val id = "startPosY" type="Float" value = "100" />
 
 		<val id = "lives" type="Int" value="3" />
 		<!-- <const id="precise" type="Float" value="61.75848" /> -->

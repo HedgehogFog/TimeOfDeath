@@ -1,5 +1,6 @@
 package world;
 
+import entity.element.Entity;
 import haxe.xml.Parser;
 import haxe.xml.Access;
 
@@ -8,7 +9,9 @@ import kha.Blob;
 import kha.Assets;
 
 import entity.element.item.Sprite;
-import entity.element.ui.Text;
+import entity.element.ui.label.Text;
+import entity.element.ui.label.PhysicText;
+
 
 import entity.group.Group;
 import scene.managment.SceneManager;
@@ -36,12 +39,12 @@ class Stage {
 		values  = new Map<String, Dynamic>();
 		objects = new Map<String, Dynamic>(); 
 
-		Assets.loadBlob(file, loadSucc, fail -> { trace(fail);});
+		loadStage(file);
 
 	}
 
-	private function loadSucc(blob: Blob){
-		var data = blob.toString();
+	private function loadStage(file: String){
+		var data = Assets.blobs.get(file).toString();
 		
 		xml 	= Parser.parse(data);
 		fastXml = new Access(xml.firstElement());
@@ -64,8 +67,9 @@ class Stage {
 		if (fastXml.has.bgColor)
 			SceneManager.instance.currentScene.bgColor = Color.fromString(fastXml.att.bgColor);
 
-		if (fastXml.has.values)
+		if (fastXml.hasNode.values)
 			loadValues();
+
 	}
 
 	private function loadValues(){
@@ -82,8 +86,9 @@ class Stage {
 						values.arrayWrite(element.att.id, const);
 					
 					case "Float":
-						var const:Float = Std.parseFloat(element.att.value);
-						values.arrayWrite(element.att.id, const);
+						var val:Float = Std.parseFloat(element.att.value);
+						values.arrayWrite(element.att.id, val);
+						trace(element.att.id + " = " + val);
 
 					case "String":
 						var const:String = element.att.value;
@@ -93,32 +98,36 @@ class Stage {
 		}
 	}
 
-	public function spawn(container: TypedGroup<Dynamic>, layerId: String){
+	public function spawn(container: TypedGroup<Dynamic>, layerId: String): TypedGroup<Dynamic>{
 		var layerNodes = fastXml.nodes.layer;
 		for (layer in layerNodes) {
 			if (layer.att.id != layerId) continue;				
 			
 			for (element in layer.elements){
 				switch (element.name){
-					default:
-						return;
-					// case "sprite":
-					// 	var instance = new Sprite();
-					// 	applySpriteProperties(instance, element);
+					case "sprite":
+						var instance = new Sprite();
+						applyEntityProperties(instance, element);
+						applySpriteProperties(instance, element);
 
-					// 	addInstance(instance, container, element);
-					// case "entity":
-					// 	var instance = Type.createInstance(Type.resolveClass(element.att.type), []);
-					// 	applySpriteProperties(instance, element);
-
-					// 	addInstance(instance, container, element);
-					// case "text":
-					// 	var instance = new Text();
+						container.add(instance);
+						objects.set(element.att.id, instance);
+					case "entity":	
+						var instance = Type.createInstance(Type.resolveClass(element.att.type), []);
 						
-					// 	applySpriteProperties(instance, element);
-					// 	applyTextProperties(instance, element);
+						applyEntityProperties(instance, element);						
+						applySpriteProperties(instance, element);
 
-					// 	addInstance(instance, container, element);
+						container.add(instance);
+						objects.set(element.att.id, instance);
+					case "text":
+						var instance = new Text();
+						
+						applyEntityProperties(instance, element);
+						applyTextProperties(instance, element);
+
+						container.add(instance);
+						objects.set(element.att.id, instance);
 					// case "button":
 						// var instance = new FlxButton();
 						// applySpriteProperties(instance, element);
@@ -127,8 +136,55 @@ class Stage {
 				}
 			}
 		}
+
+		return container;
+	}
+	private	function applySpriteProperties(instance: Dynamic, element: Access) {
+		if (element.has.image)
+			instance.image = Assets.images.get(element.att.image);
 	}
 
+	private function applyEntityProperties(instance: Entity, element: Access) {
+		if (element.has.x)
+			instance.x     = Std.parseFloat(element.att.x);
+		if (element.has.y)
+			instance.y     = Std.parseFloat(element.att.y);
+
+		if (element.has.width)
+			instance.width = Std.parseFloat(element.att.width);
+
+		if (element.has.height)
+			instance.height = Std.parseFloat(element.att.height);	
+		if (element.has.angle)
+			instance.angle = Std.parseFloat(element.att.angle);
+		
+		if (element.has.visible)
+			instance.visible = parseBool(element.att.visible);
+	}
+
+	private	function applyTextProperties(instance: Text, element:Access){
+		if (instance == null || element == null) return;
+
+		if (element.has.text)
+			instance.text = element.att.text;
+
+		if (element.has.size)
+			instance.size = Std.parseInt(element.att.size);
+	}
+
+	public function object(id:String):Dynamic{
+		if (objects.exists(id))
+			return objects.get(id);
+
+		return null;
+	}
+
+	public function getValue(id: String): Dynamic{
+		if (values.exists(id))
+			return values.get(id);
+
+		return null;
+	}
 	private function parseBool(value:String):Bool{
 		if (value == "false" || Std.parseInt(value) == 0)
 			return false;
