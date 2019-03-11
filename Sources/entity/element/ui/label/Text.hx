@@ -1,6 +1,7 @@
 package entity.element.ui.label;
 
 import kha.graphics2.Graphics;
+import entity.base.Entity;
 
 class Text extends Entity {
 	public var text: String;

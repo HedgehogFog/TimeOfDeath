@@ -5,6 +5,7 @@ import nape.phys.Body;
 import nape.phys.BodyType;
 import nape.shape.Polygon;
 
+import entity.base.Entity;
 import scene.managment.SceneManager;
 
 class PhysicUI extends Entity {

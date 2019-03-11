@@ -1,6 +1,8 @@
 let project = new Project('New Project');
 project.addAssets('Assets/Font/**');
-project.addAssets('Assets/Levels/**')
+project.addAssets('Assets/Levels/**');
+project.addAssets('Assets/Img/**');
+
 project.addSources('Sources');
 
 project.addLibrary("nape4");

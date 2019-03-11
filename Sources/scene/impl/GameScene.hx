@@ -3,7 +3,7 @@ package scene.impl;
 import zui.Id;
 import zui.Zui;
 import nape.phys.BodyType;
-import entity.element.Entity;
+import entity.base.Entity;
 import nape.shape.Circle;
 import nape.phys.Body;
 // Nape
@@ -20,7 +20,7 @@ import world.Stage;
 import entity.group.Group;
 import entity.element.user.Player;
 import entity.element.ui.label.PhysicText;
-
+import entity.element.enemy.Rebel;
 
 class GameScene implements Scene {
 	public var currentStage: Stage;
@@ -28,6 +28,7 @@ class GameScene implements Scene {
 
 	var playerGroup: TypedGroup<Player>;
 	var textGroup: 	 TypedGroup<PhysicText>;
+	var enemy: 		 TypedGroup<Rebel>;
 	public function new(){
 
 		
@@ -41,10 +42,14 @@ class GameScene implements Scene {
 
 		currentStage = new Stage("l0_xml");
 		
+		enemy = new TypedGroup<Rebel>();
+		currentStage.spawn(enemy, "enemy");
+		trace(enemy.members.length);
+
 		playerGroup = new TypedGroup<Player>();
 		var x: Float = currentStage.getValue("startPosX");
 		var y: Float = currentStage.getValue("startPosY");
-		trace(x + "," + y);
+
 		playerGroup.add(new Player(x, y));
 		// playerGroup.add(new Player(10, 10));
 		
@@ -57,9 +62,10 @@ class GameScene implements Scene {
 		gr.begin(true, bgColor);
 	    gr.font = Assets.fonts.OpenSans;
 		// gr.drawRect(body.position.x, body.position.y, 10, 10);
-
+		
 		playerGroup.draw(gr);
 		textGroup.draw(gr);
+		enemy.draw(gr);
 		gr.end();
  
 		ui.begin(gr);
@@ -74,7 +80,6 @@ class GameScene implements Scene {
 	var loadTime = 2.0;
 
 	public function update(dt: Float){
-		trace(currentStage.getValue("startPosX"));
 		playerGroup.update(dt);
 		textGroup.update(dt);
 	}

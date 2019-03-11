@@ -1,6 +1,6 @@
 package world;
 
-import entity.element.Entity;
+import entity.base.Entity;
 import haxe.xml.Parser;
 import haxe.xml.Access;
 
@@ -8,7 +8,7 @@ import kha.Color;
 import kha.Blob;
 import kha.Assets;
 
-import entity.element.item.Sprite;
+import entity.base.Sprite;
 import entity.element.ui.label.Text;
 import entity.element.ui.label.PhysicText;
 
@@ -111,15 +111,19 @@ class Stage {
 						applySpriteProperties(instance, element);
 
 						container.add(instance);
-						objects.set(element.att.id, instance);
+						if (element.has.id)
+							objects.set(element.att.id, instance);
 					case "entity":	
 						var instance = Type.createInstance(Type.resolveClass(element.att.type), []);
 						
 						applyEntityProperties(instance, element);						
 						applySpriteProperties(instance, element);
 
+						instance.init();
 						container.add(instance);
-						objects.set(element.att.id, instance);
+
+						if (element.has.id)
+							objects.set(element.att.id, instance);
 					case "text":
 						var instance = new Text();
 						
@@ -127,7 +131,8 @@ class Stage {
 						applyTextProperties(instance, element);
 
 						container.add(instance);
-						objects.set(element.att.id, instance);
+						if (element.has.id)						
+							objects.set(element.att.id, instance);
 					// case "button":
 						// var instance = new FlxButton();
 						// applySpriteProperties(instance, element);

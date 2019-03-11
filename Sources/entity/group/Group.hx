@@ -1,7 +1,7 @@
 package entity.group;
 
 //Local
-import entity.element.Entity;
+import entity.base.Entity;
 
 //Kha
 import kha.graphics2.Graphics;
