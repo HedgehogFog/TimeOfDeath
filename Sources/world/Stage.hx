@@ -98,7 +98,7 @@ class Stage {
 		}
 	}
 
-	public function spawn(container: TypedGroup<Dynamic>, layerId: String): TypedGroup<Dynamic>{
+	public function spawn(container: TypedGroup<Dynamic>, layerId: String){
 		var layerNodes = fastXml.nodes.layer;
 		for (layer in layerNodes) {
 			if (layer.att.id != layerId) continue;				
@@ -141,8 +141,6 @@ class Stage {
 				}
 			}
 		}
-
-		return container;
 	}
 	private	function applySpriteProperties(instance: Dynamic, element: Access) {
 		if (element.has.image)

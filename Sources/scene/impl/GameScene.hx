@@ -44,6 +44,7 @@ class GameScene implements Scene {
 		
 		enemy = new TypedGroup<Rebel>();
 		currentStage.spawn(enemy, "enemy");
+
 		trace(enemy.members.length);
 
 		playerGroup = new TypedGroup<Player>();
@@ -69,11 +70,11 @@ class GameScene implements Scene {
 		gr.end();
  
 		ui.begin(gr);
-		// if (ui.window(Id.handle(), 10, 10, 240, 600, true)) {
-		// 	if (ui.panel(Id.handle({selected: true}), "Панель")) {
-		// 		ui.textInput(Id.handle({text: "Hello"}), "Input");	
-		// 	}
-		// }
+		if (ui.window(Id.handle(), 10, 10, 240, 600, true)) {
+			if (ui.panel(Id.handle({selected: true}), "Панель")) {
+				ui.textInput(Id.handle({text: "Hello"}), "Input");	
+			}
+		}
 		ui.end();
 	}
 	

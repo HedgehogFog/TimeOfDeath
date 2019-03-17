@@ -12,12 +12,12 @@
 		<movie minorVersion="0" />
 		<movie platform="JavaScript" />
 		<movie background="#ffffff" />
-		<movie preferredSDK="../../../../../Program/KodeStudio-Linux/resources/app/kodeExtensions/kha/Kha/Tools/haxe" />
+		<movie preferredSDK="../../../../../Program/KodeStudio/resources/app/kodeExtensions/kha/Kha/Tools/haxe" />
 	</output>
 	<!-- Other classes to be compiled into your SWF -->
 	<classpaths>
-		<class path="../../../../../Program/KodeStudio-Linux/resources/app/kodeExtensions/kha/Kha/Sources" />
-		<class path="../../../../../Program/KodeStudio-Linux/resources/app/kodeExtensions/kha/Kha/Backends/Krom" />
+		<class path="../../../../../Program/KodeStudio/resources/app/kodeExtensions/kha/Kha/Sources" />
+		<class path="../../../../../Program/KodeStudio/resources/app/kodeExtensions/kha/Kha/Backends/Krom" />
 		<class path="../Sources" />
 		<class path="../../../../../haxe/lib/nape4/git" />
 		<class path="../../../../../haxe/lib/zui/git/Sources" />

@@ -5,7 +5,7 @@ import kha.System;
 
 class Main {
 	public static function main() {
-		System.init({title: "Project", width: 1024, height: 768}, 
+		System.init({title: "Project", width: 1024, height: 768, samplesPerPixel: 5}, 
 			function () {
 				Assets.loadEverything(
 					function (){

@@ -1,13 +1,6 @@
 {
 	"files": [
 		{
-			"name": "OpenSans_sfd",
-			"files": [
-				"OpenSans.sfd"
-			],
-			"type": "blob"
-		},
-		{
 			"name": "OpenSans",
 			"files": [
 				"OpenSans.ttf"
@@ -20,6 +13,24 @@
 				"l0.xml"
 			],
 			"type": "blob"
+		},
+		{
+			"name": "Player",
+			"files": [
+				"Player.png"
+			],
+			"type": "image",
+			"original_width": 32,
+			"original_height": 32
+		},
+		{
+			"name": "rebel",
+			"files": [
+				"rebel.png"
+			],
+			"type": "image",
+			"original_width": 32,
+			"original_height": 32
 		},
 		{
 			"name": "painter_colored_frag",

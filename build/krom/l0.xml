@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene width="640" height="480" bgColor="#33000000" name="First Level" description="Demo" version="1.0">
     <values>
-		<val id = "startPosX" type="Int" value = "500" />
-		<val id = "startPosY" type="Int" value = "100" />
+		<val id = "startPosX" type="Float" value = "100" />
+		<val id = "startPosY" type="Float" value = "100" />
 
 		<val id = "lives" type="Int" value="3" />
 		<!-- <const id="precise" type="Float" value="61.75848" /> -->
@@ -23,12 +23,12 @@
 	</layer>
 
 	<layer id="enemy">
-		<entity type="entity.enemy.Rebel" x = "320" y = "240" />
-		<entity type="entity.enemy.Rebel" x = "120" y = "240" />
-		<entity type="entity.enemy.Rebel" x = "520" y = "240" />
-		<entity type="entity.enemy.Rebel" x = "320" y = "440" />
-		<entity type="entity.enemy.Rebel" x = "100" y = "100" />
-		<entity type="entity.enemy.Rebel" x = "150" y = "150" />
+		<entity type="entity.element.enemy.Rebel" x = "320" y = "240" />
+		<entity type="entity.element.enemy.Rebel" x = "120" y = "240" />
+		<entity type="entity.element.enemy.Rebel" x = "520" y = "240" />
+		<entity type="entity.element.enemy.Rebel" x = "320" y = "440" />
+		<entity type="entity.element.enemy.Rebel" x = "100" y = "100" />
+		<entity type="entity.element.enemy.Rebel" x = "150" y = "150" />
 		
 	</layer>
 
