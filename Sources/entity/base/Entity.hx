@@ -14,6 +14,7 @@ class Entity implements IEntity {
 	public var name    = "Entity";
 	public var active  = true;
 	public var visible = true;
+	public var exist   = true;
 	public var alive   = true;
 	
 	public function new(?x: Float = 0, ?y: Float = 0) {
@@ -38,10 +39,12 @@ class Entity implements IEntity {
 
 	public function kill() {
 		alive = false;
+		exist = false;
 	}
 	
 	public function revive(){
 		alive = true;
+		exist = true;
 	}
 }
 
@@ -51,6 +54,7 @@ interface IEntity {
 	var active:  Bool;
 	var visible: Bool;
 	var alive:   Bool;
+	var exist: 	 Bool;
 
 	public function draw(gr: Graphics): Void;
 	public function update(dt: Float):  Void;

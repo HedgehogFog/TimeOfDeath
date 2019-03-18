@@ -14,7 +14,8 @@ class TypedGroup<T: Entity> implements IEntity {
 	public var active  = true;
 	public var visible = true;
 	public var alive   = true;
-	
+	public var exist   = true;
+
 	public var members(default, null):Array<T>;
 
 	public function new(?groupName: String) {
@@ -57,11 +58,24 @@ class TypedGroup<T: Entity> implements IEntity {
 
 	}
 
-	public function recycle(){
-		//TODO Auto Pool	
+	public function recycle(objClass: Class<T>): T{
+		var basis = getFirstExist();
+
+		if (basis != null){
+			basis.revive();
+			return basis;
+		}
+
+		return recycleCreateObject(objClass);
 	}
+	
 
+	private function recycleCreateObject(objClass: Class<T>): T{
+		var entity: T;
+		add(entity = Type.createInstance(objClass, []));
 
+		return entity;
+	}
 
 	public function draw(gr: Graphics){
 		for (entity in members){
@@ -90,10 +104,10 @@ class TypedGroup<T: Entity> implements IEntity {
 	}
 
 	public function kill() {
-
+		// Kill all 
 	}
-	public function revive(){
-
+	public function revive() {
+		// revive all
 	}
 	
 	private function getFirstNull():Int{		
@@ -104,4 +118,13 @@ class TypedGroup<T: Entity> implements IEntity {
 		
 		return -1;
 	} 
+
+	private function getFirstExist(): T {
+		for(i in 0...members.length){
+			if (members[i] != null && !members[i].exist)
+				return members[i];
+		} 
+
+		return null;
+	}
 }
